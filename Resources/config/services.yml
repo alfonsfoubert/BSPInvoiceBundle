@@ -1,0 +1,10 @@
+parameters:    
+    # Invoice Manipulator
+    bsp_invoice.manipulator.class: BSP\InvoiceBundle\Example
+
+services:
+    # Invoice Manipulator
+    bsp_invoice.manipulator:
+        class: %bsp_invoice.manipulator.class%
+        arguments:
+            - @bsp_invoice.invoice_manager

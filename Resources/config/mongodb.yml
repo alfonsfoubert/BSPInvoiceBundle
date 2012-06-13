@@ -1,0 +1,14 @@
+parameters:
+    # Invoice Manager
+    bsp_invoice.invoice.class: BSP\InvoiceBundle\Document\Invoice
+    bsp_invoice.invoice_line.class: BSP\InvoiceBundle\Document\InvoiceLine
+    bsp_invoice.invoice_manager.class: BSP\InvoiceBundle\Document\InvoiceManager
+
+services:
+    # Invoice Manager
+    bsp_invoice.invoice_manager:
+        class: %bsp_invoice.invoice_manager.class%
+        arguments:
+            - @doctrine.odm.mongodb.document_manager
+            - %bsp_invoice.invoice.class%
+            - %bsp_invoice.invoice_line.class%
