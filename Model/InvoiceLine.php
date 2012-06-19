@@ -2,7 +2,7 @@
 
 namespace BSP\InvoiceBundle\Model;
 
-use BSP\InvoiceBundle\InvoiceLineInterface;
+use BSP\InvoiceBundle\Model\InvoiceLineInterface;
 
 class InvoiceLine implements InvoiceLineInterface
 {
