@@ -41,9 +41,14 @@ class Invoice extends BaseInvoice
 	protected $number;
 	
 	/**
-	 * @MongoDB\String
+	 * @MongoDB\EmbedOne(targetDocument="BSP\InvoiceBundle\Document\BillingInfo")
 	 */
 	protected $customer;
+	
+	/**
+	 * @MongoDB\EmbedOne(targetDocument="BSP\InvoiceBundle\Document\BillingInfo")
+	 */
+	protected $provider;
 	
 	/**
 	 * @MongoDB\String
@@ -89,5 +94,5 @@ class Invoice extends BaseInvoice
 	public function getId()
 	{
 		return $this->id;
-	}
+	}	
 }

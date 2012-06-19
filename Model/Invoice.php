@@ -14,6 +14,7 @@ class Invoice implements InvoiceInterface
 	protected $createdAt;
 	protected $number;
 	protected $customer;
+	protected $provider;
 	protected $notes;
 	protected $date;
 	protected $sentAt;
@@ -66,14 +67,24 @@ class Invoice implements InvoiceInterface
 		$this->number = $number;
 	}
 	
-	function getCustomer()
+	function getProvider()
 	{
-		return $this->billingInfo;
+		return $this->provider;
 	}
 	
-	function setCustomer( $billingInfo )
+	function setProvider( $provider )
 	{
-		$this->billingInfo = $billingInfo;
+		$this->provider = $provider;
+	}
+	
+	function getCustomer()
+	{
+		return $this->customer;
+	}
+	
+	function setCustomer( $customer )
+	{
+		$this->customer = $customer;
 	}	
 	
 	function getNotes()
@@ -170,7 +181,7 @@ class Invoice implements InvoiceInterface
 	{
 		$this->lines[] = $line;
 	}
-	
+		
 	function determineTotals()
 	{
 		$subtotal = 0;

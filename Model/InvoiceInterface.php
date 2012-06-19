@@ -10,8 +10,6 @@ interface InvoiceInterface
 	const INVOICE_STATUS_SENT  = 2;
 	const INVOICE_STATUS_PAID  = 3;
 	
-	function getCustomer();
-	function setCustomer( $customerInfo );
 	function getNumber();
 	function setNumber( $number );
 	function getStatus();
@@ -39,4 +37,8 @@ interface InvoiceInterface
 	function getLines();
 	function addLine( $line );
 	function setLines( $lines );
+	function getProvider();	
+	function setProvider( $provider );
+	function getCustomer();
+	function setCustomer( $customer );
 }

@@ -2,6 +2,8 @@
 
 namespace BSP\InvoiceBundle\Util;
 
+use BSP\InvoiceBundle\Model\Invoiceable;
+
 class InvoiceManipulator
 {
 	protected $invoiceManager;
@@ -11,12 +13,13 @@ class InvoiceManipulator
 		$this->invoiceManager = $im;
 	}
 	
-	public function createInvoice( $ref, $currency, $customer )
+	public function createInvoice( Invoiceable $provider, Invoiceable $customer, $ref, $currency )
 	{
 		$invoice = $this->invoiceManager->createInvoice();
 		$invoice->setNumber( $ref );
 		$invoice->setCurrency( $currency );
-		$invoice->setCustomer( $customer );
+		$invoice->setProvider( $this->_getBillingInfo($provider) );
+		$invoice->setCustomer( $this->_getBillingInfo($customer) );
 		$this->invoiceManager->updateInvoice( $invoice );
 		return $invoice;
 	}
@@ -50,5 +53,14 @@ class InvoiceManipulator
 			return $ninvoice;
 		}
 		return $invoice;
+	}
+	
+	protected function _getBillingInfo( Invoiceable $info )
+	{
+		$class = $this->invoiceManager->getBillingInfoClass();
+		$billingInfo = new $class();
+		$billingInfo->setName( $info->getInvoiceName() );
+		$billingInfo->setLines( $info->getInvoiceLines() );
+		return $billingInfo;
 	}
 }

@@ -6,7 +6,23 @@
 </head>
 <body>
 
-<span>Invoice Number: {{ invoice.number }}</span>
+<span>Invoice {{ invoice.number }}</span>
+
+<div>
+	<span>Provider {{ invoice.provider.name }}</span>
+	{% for key,value in invoice.provider.lines %}
+		<dt>{{ key }}</dt>
+		<dd>{{ value }}</dd>
+	{% endfor %}
+</div>
+
+<div>
+	<span>Customer {{ invoice.customer.name }}</span>
+	{% for key,value in invoice.customer.lines %}
+		<dt>{{ key }}</dt>
+		<dd>{{ value }}</dd>
+	{% endfor %}
+</div>
 
 <table>
 	<thead>
