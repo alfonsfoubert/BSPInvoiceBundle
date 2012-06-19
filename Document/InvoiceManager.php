@@ -11,14 +11,16 @@ class InvoiceManager extends BaseInvoiceManager
 	protected $repository;
 	protected $class;
 	protected $lineClass;
+	protected $billingInfoClass;
 	
-	public function __construct( $dm, $invoiceClass, $lineClass )
+	public function __construct( $dm, $invoiceClass, $lineClass, $billingInfoClass )
 	{	
 		$this->dm = $dm;
 		$this->repository = $dm->getRepository($invoiceClass);
 		$metadata = $dm->getClassMetadata($invoiceClass);
 		$this->class = $metadata->name;
 		$this->lineClass = $lineClass;
+		$this->billingInfoClass = $billingInfoClass;
 	}
 	
 	public function findInvoiceBy( array $criteria  )
@@ -34,6 +36,11 @@ class InvoiceManager extends BaseInvoiceManager
 	public function getLineClass()
 	{
 		return $this->lineClass;
+	}
+	
+	public function getBillingInfoClass()
+	{
+		return $this->billingInfoClass;
 	}
 	
 	function findInvoices()

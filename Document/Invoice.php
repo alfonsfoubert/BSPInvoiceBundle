@@ -5,6 +5,9 @@ namespace BSP\InvoiceBundle\Document;
 use Doctrine\ODM\MongoDB\Mapping\Annotations as MongoDB;
 use BSP\InvoiceBundle\Model\Invoice as BaseInvoice;
 
+/**
+ * @MongoDB\Document(collection="invoices")
+ */
 class Invoice extends BaseInvoice
 {
 	/**
@@ -38,9 +41,14 @@ class Invoice extends BaseInvoice
 	protected $number;
 	
 	/**
-	 * @MongoDB\String
+	 * @MongoDB\EmbedOne(targetDocument="BSP\InvoiceBundle\Document\BillingInfo")
 	 */
 	protected $customer;
+	
+	/**
+	 * @MongoDB\EmbedOne(targetDocument="BSP\InvoiceBundle\Document\BillingInfo")
+	 */
+	protected $provider;
 	
 	/**
 	 * @MongoDB\String
@@ -62,8 +70,29 @@ class Invoice extends BaseInvoice
 	 */
 	protected $payedAt;
 	
+	/**
+	 * @MongoDB\String
+	 */
+	protected $currency;
+	
+	/**
+	 * @MongoDB\Float
+	 */
+	protected $subtotal;
+	
+	/**
+	 * @MongoDB\Float
+	 */
+	protected $total;
+	
+	/**
+	 * @MongoDB\Float
+	 */
+	protected $totalTax;
+	
+	
 	public function getId()
 	{
 		return $this->id;
-	}
+	}	
 }

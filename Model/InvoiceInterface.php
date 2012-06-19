@@ -10,8 +10,6 @@ interface InvoiceInterface
 	const INVOICE_STATUS_SENT  = 2;
 	const INVOICE_STATUS_PAID  = 3;
 	
-	function getCustomer();
-	function setCustomer( $customerInfo );
 	function getNumber();
 	function setNumber( $number );
 	function getStatus();
@@ -27,4 +25,20 @@ interface InvoiceInterface
 	function setSentAt( $date );
 	function getPayedAt();
 	function setPayedAt( $date );
+	function getCurrency();
+	function setCurrency( $currency );
+	function determineTotals();
+	function getTotal();
+	function getSubTotal();
+	function getTaxTotal();
+	function setTotal( $total );
+	function setSubTotal( $subtotal );
+	function setTotalTax( $totalTax );
+	function getLines();
+	function addLine( $line );
+	function setLines( $lines );
+	function getProvider();	
+	function setProvider( $provider );
+	function getCustomer();
+	function setCustomer( $customer );
 }

@@ -14,10 +14,16 @@ class Invoice implements InvoiceInterface
 	protected $createdAt;
 	protected $number;
 	protected $customer;
+	protected $provider;
 	protected $notes;
 	protected $date;
 	protected $sentAt;
 	protected $payedAt;
+	protected $currency;
+	
+	protected $subtotal;
+	protected $total;
+	protected $totalTax;
 	
 	public function __construct()
 	{
@@ -61,14 +67,24 @@ class Invoice implements InvoiceInterface
 		$this->number = $number;
 	}
 	
-	function getCustomer()
+	function getProvider()
 	{
-		return $this->billingInfo;
+		return $this->provider;
 	}
 	
-	function setCustomer( $billingInfo )
+	function setProvider( $provider )
 	{
-		$this->billingInfo = $billingInfo;
+		$this->provider = $provider;
+	}
+	
+	function getCustomer()
+	{
+		return $this->customer;
+	}
+	
+	function setCustomer( $customer )
+	{
+		$this->customer = $customer;
 	}	
 	
 	function getNotes()
@@ -109,5 +125,79 @@ class Invoice implements InvoiceInterface
 	function setPayedAt( $date )
 	{
 		$this->payedAt = $date;
+	}
+	
+	function getCurrency()
+	{
+		return $this->currency;
+	}
+	
+	function setCurrency( $currency )
+	{
+		$this->currency = $currency;
+	}
+	
+	function getTotal()
+	{
+		return $this->total;
+	}
+	
+	function getSubTotal()
+	{
+		return $this->subtotal;
+	}
+	
+	function getTaxTotal()
+	{
+		return $this->totalTax;
+	}
+	
+	function setTotal( $total )
+	{
+		$this->total = $total;
+	}
+	
+	function setSubTotal( $subtotal )
+	{
+		$this->subtotal = $subtotal;
+	}
+	
+	function setTotalTax( $totalTax )
+	{
+		$this->totalTax = $totalTax;
+	}
+	
+	function setLines( $lines )
+	{
+		$this->lines = $lines;
+	}
+	
+	function getLines()
+	{
+		return $this->lines;
+	}
+	
+	function addLine( $line )
+	{
+		$this->lines[] = $line;
+	}
+		
+	function determineTotals()
+	{
+		$subtotal = 0;
+		$total    = 0;
+		$totalTax = 0;
+		
+		foreach ($this->getLines() as $line)
+		{
+			$line->determineTotals();
+			$subtotal += $line->getSubtotal();
+			$total    += $line->getTotal();
+			$totalTax += $line->getTotalTax();
+		}
+		
+		$this->setSubTotal( $subtotal );
+		$this->setTotalTax( $totalTax );
+		$this->setTotal( $total );
 	}
 }

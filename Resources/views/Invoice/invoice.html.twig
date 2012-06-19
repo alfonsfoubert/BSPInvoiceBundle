@@ -1,0 +1,50 @@
+<html>
+<head>
+<title>Invoice {{ invoice.number }}</title>
+<link href="{{ asset('bundles/bspinvoice/css/invoice.css') }}" type="text/css" rel="stylesheet" />
+
+</head>
+<body>
+
+<span>Invoice {{ invoice.number }}</span>
+
+<div>
+	<span>Provider {{ invoice.provider.name }}</span>
+	{% for key,value in invoice.provider.lines %}
+		<dt>{{ key }}</dt>
+		<dd>{{ value }}</dd>
+	{% endfor %}
+</div>
+
+<div>
+	<span>Customer {{ invoice.customer.name }}</span>
+	{% for key,value in invoice.customer.lines %}
+		<dt>{{ key }}</dt>
+		<dd>{{ value }}</dd>
+	{% endfor %}
+</div>
+
+<table>
+	<thead>
+	<tr>
+		<td>Reference</td><td>Description</td><td>Quantity</td><td>Amount</td><td>Taxes</td><td>Subtotal</td><td>Total</td>
+	</tr>
+	</thead>
+	<tbody>
+		{% for line in invoice.lines %}
+		<tr>
+			<td>{{ line.reference }}</td><td>{{ line.description }}</td><td>{{ line.quantity }}</td><td>{{ line.amount }}</td><td>{{ line.totalTax }}</td><td>{{ line.subtotal }}</td><td>{{ line.total }}</td>
+		</tr>
+		{% endfor %}
+	</tbody>
+	<tfoot>
+	</tfoot>
+</table>
+
+<span>Subtotal: {{ invoice.subtotal }}</span>
+<span>Total taxes: {{ invoice.taxTotal }}</span>
+<span>Total: {{ invoice.currency }} {{ invoice.total }}</span>
+
+</body>
+
+</html>
