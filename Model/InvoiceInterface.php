@@ -27,4 +27,16 @@ interface InvoiceInterface
 	function setSentAt( $date );
 	function getPayedAt();
 	function setPayedAt( $date );
+	function getCurrency();
+	function setCurrency( $currency );
+	function determineTotals();
+	function getTotal();
+	function getSubTotal();
+	function getTaxTotal();
+	function setTotal( $total );
+	function setSubTotal( $subtotal );
+	function setTotalTax( $totalTax );
+	function getLines();
+	function addLine( $line );
+	function setLines( $lines );
 }

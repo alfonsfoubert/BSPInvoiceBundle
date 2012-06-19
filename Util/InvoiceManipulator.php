@@ -11,14 +11,17 @@ class InvoiceManipulator
 		$this->invoiceManager = $im;
 	}
 	
-	public function createInvoice()
+	public function createInvoice( $ref, $currency, $customer )
 	{
 		$invoice = $this->invoiceManager->createInvoice();
+		$invoice->setNumber( $ref );
+		$invoice->setCurrency( $currency );
+		$invoice->setCustomer( $customer );
 		$this->invoiceManager->updateInvoice( $invoice );
 		return $invoice;
 	}
 	
-	public function addLine( $invoice, $type, $reference, $description, $quantity, $amount, $total )
+	public function addLine( $invoice, $type, $reference, $description, $quantity, $amount, $tax )
 	{
 		$invoice = $this->_getInvoice($invoice);
 		$class   = $this->invoiceManager->getLineClass();
@@ -28,8 +31,9 @@ class InvoiceManipulator
 		$line->setDescription( $description );
 		$line->setQuantity( $quantity );
 		$line->setAmount( $amount );
-		$line->setTotal( $total );
+		$line->setTax( $tax );
 		$invoice->addLine( $line );
+		$invoice->determineTotals();
 		$this->invoiceManager->updateInvoice( $invoice );
 		return $invoice;
 	}
