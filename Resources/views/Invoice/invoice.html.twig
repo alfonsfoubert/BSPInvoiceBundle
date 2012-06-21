@@ -27,13 +27,20 @@
 <table>
 	<thead>
 	<tr>
-		<td>Reference</td><td>Description</td><td>Quantity</td><td>Amount</td><td>Taxes</td><td>Subtotal</td><td>Total</td>
+		<td>Reference</td><td>Description</td><td>Quantity</td><td>Amount</td><td>Discount</td><td>Taxes</td><td>Subtotal</td><td>Total</td>
 	</tr>
 	</thead>
 	<tbody>
 		{% for line in invoice.lines %}
 		<tr>
-			<td>{{ line.reference }}</td><td>{{ line.description }}</td><td>{{ line.quantity }}</td><td>{{ line.amount }}</td><td>{{ line.totalTax }}</td><td>{{ line.subtotal }}</td><td>{{ line.total }}</td>
+			<td>{{ line.reference }}</td>
+			<td>{{ line.description }}</td>
+			<td>{{ line.quantity }}</td>
+			<td>{{ line.amount }}</td>
+			<td>{{ line.totalDiscount }}</td>
+			<td>{{ line.totalTax }}</td>
+			<td>{{ line.subtotal }}</td>
+			<td>{{ line.total }}</td>
 		</tr>
 		{% endfor %}
 	</tbody>

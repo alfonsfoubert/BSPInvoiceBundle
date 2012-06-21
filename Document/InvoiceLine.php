@@ -48,6 +48,16 @@ class InvoiceLine extends BaseInvoiceLine
 	/**
 	 * @MongoDB\Float
 	 */
+	protected $discount;
+	
+	/**
+	 * @MongoDB\Float
+	 */
+	protected $totalDiscount;
+	
+	/**
+	 * @MongoDB\Float
+	 */
 	protected $total;
 	
 	/**

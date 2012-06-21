@@ -25,6 +25,9 @@ interface InvoiceLineInterface
 	public function setTotal($total);
 	public function getSubtotal();
 	public function setSubtotal($subtotal);
+	public function getDiscount();
+	public function setDiscount( $discount );
+	public function getTotalDiscount();
 	public function determineTotals();
 	
 }

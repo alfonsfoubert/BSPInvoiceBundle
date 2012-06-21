@@ -35,19 +35,6 @@ class InvoiceController extends Controller
 		{
 			throw $this->createNotFoundException( 'Invoice ' . $id . ' not found' );
 		}
-		/*
-		$manipulator = $this->get( 'bsp_invoice.manipulator' );
-		$securityContext = $this->get('security.context');
-		
-		$customer = $securityContext->getToken()->getUser();
-		$provider = $customer->getStore();
-		
-		$invoice = $manipulator->createInvoice( $provider, $customer, 'BSPMOLA002', '€' );
-		
-		$invoice = $manipulator->addLine( $invoice, \BSP\InvoiceBundle\Model\InvoiceLineInterface::TYPE_PRODUCT, 'BOLD001', 'Peineta para calvos', 3, 19.95, 0.18 );
-		$invoice = $manipulator->addLine( $invoice, \BSP\InvoiceBundle\Model\InvoiceLineInterface::TYPE_PRODUCT, 'BOLD002', 'Laca para calvos', 2, 4.95, 0.18 );
-		*/
-		
 		return $this->render( 'BSPInvoiceBundle:Invoice:invoice.html.twig', array('invoice' => $invoice) );
 	}
 }

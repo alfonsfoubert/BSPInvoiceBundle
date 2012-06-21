@@ -24,7 +24,7 @@ class InvoiceManipulator
 		return $invoice;
 	}
 	
-	public function addLine( $invoice, $type, $reference, $description, $quantity, $amount, $tax )
+	public function addLine( $invoice, $type, $reference, $description, $quantity, $amount, $tax = 0, $discount = 0 )
 	{
 		$invoice = $this->_getInvoice($invoice);
 		$class   = $this->invoiceManager->getLineClass();
@@ -35,6 +35,7 @@ class InvoiceManipulator
 		$line->setQuantity( $quantity );
 		$line->setAmount( $amount );
 		$line->setTax( $tax );
+		$line->setDiscount( $discount );
 		$invoice->addLine( $line );
 		$invoice->determineTotals();
 		$this->invoiceManager->updateInvoice( $invoice );

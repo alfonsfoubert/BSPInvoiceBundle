@@ -12,10 +12,12 @@ class InvoiceLine implements InvoiceLineInterface
 	protected $quantity;
 	protected $amount;
 	protected $tax;
+	protected $discount;
 
 	protected $totalTax;
 	protected $total;
 	protected $subtotal;
+	protected $totalDiscount;
 
 	public function getType() {
 		return $this->type;
@@ -89,9 +91,30 @@ class InvoiceLine implements InvoiceLineInterface
 		$this->subtotal = $subtotal;
 	}
 
+	public function getDiscount()
+	{
+		return $this->discount;
+	}
+	
+	public function setDiscount( $discount )
+	{
+		$this->discount = $discount;
+	}
+	
+	public function setTotalDiscount( $totalDiscount )
+	{
+		$this->totalDiscount = $totalDiscount;
+	}
+	
+	public function getTotalDiscount()
+	{
+		return $this->totalDiscount;
+	}
+	
 	public function determineTotals()
 	{
-		$this->setSubtotal( $this->getAmount() * $this->getQuantity() );
+		$this->setTotalDiscount( $this->getAmount() * $this->getDiscount() );
+		$this->setSubtotal( ($this->getAmount() - $this->getTotalDiscount()) * $this->getQuantity() );
 		$this->setTotalTax( $this->getSubtotal() * $this->getTax() );
 		$this->setTotal( $this->getSubtotal() + $this->getTotalTax() );
 	}
