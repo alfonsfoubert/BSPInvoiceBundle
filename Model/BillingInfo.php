@@ -3,17 +3,11 @@
 namespace BSP\InvoiceBundle\Model;
 
 use BSP\InvoiceBundle\Model\BillingInfoInterface;
-use Doctrine\Common\Collections\ArrayCollection;
 
 class BillingInfo implements BillingInfoInterface
 {
 	protected $name;
-	protected $lines;
-	
-	public function __construct()
-	{
-		$this->lines = new ArrayCollection();
-	}
+	protected $lines = array();
 	
 	function getName()
 	{
@@ -35,8 +29,13 @@ class BillingInfo implements BillingInfoInterface
 		$this->lines = $lines;
 	}
 	
-	function addLine( $line )
+	function addLine( $key, $value )
 	{
-		$this->lines[] = $line;
+		$this->lines[$key] = $value;
+	}
+	
+	function getLine( $key )
+	{
+	    return $this->lines[$key];
 	}
 }

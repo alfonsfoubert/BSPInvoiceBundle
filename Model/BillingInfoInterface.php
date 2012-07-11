@@ -8,5 +8,5 @@ interface BillingInfoInterface
 	function getLines();
 	function setName( $name );
 	function setLines( $lines );
-	function addLine( $line );
+	function addLine( $key, $value );
 }
