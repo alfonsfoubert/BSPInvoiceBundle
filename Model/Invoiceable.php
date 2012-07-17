@@ -4,6 +4,6 @@ namespace BSP\InvoiceBundle\Model;
 
 interface Invoiceable
 {
-	function getInvoiceName();
-	function getInvoiceLines();
+    public function getInvoiceName();
+    public function getInvoiceLines();
 }

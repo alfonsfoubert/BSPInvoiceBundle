@@ -10,13 +10,13 @@ use BSP\InvoiceBundle\Model\BillingInfo as BaseBillingInfo;
  */
 class BillingInfo extends BaseBillingInfo
 {
-	/**
-	 * @MongoDB\String
-	 */
-	protected $name;
-	
-	/**
-	 * @MongoDB\Hash
-	 */
-	protected $lines;
+    /**
+     * @MongoDB\String
+     */
+    protected $name;
+
+    /**
+     * @MongoDB\Hash
+     */
+    protected $lines;
 }

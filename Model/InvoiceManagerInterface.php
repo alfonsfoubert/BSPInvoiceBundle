@@ -6,10 +6,10 @@ use BSP\InvoiceBundle\Model\InvoiceInterface;
 
 interface InvoiceManagerInterface
 {
-	function getClass();
-	function createInvoice();
-	function findInvoiceBy(array $criteria);
-	function findInvoiceById( $id );
-	function findInvoices();
-	function updateInvoice( InvoiceInterface $invoice, $andFlush = true );
+    public function getClass();
+    public function createInvoice();
+    public function findInvoiceBy(array $criteria);
+    public function findInvoiceById( $id );
+    public function findInvoices();
+    public function updateInvoice( InvoiceInterface $invoice, $andFlush = true );
 }

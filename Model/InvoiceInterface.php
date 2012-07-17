@@ -2,43 +2,41 @@
 
 namespace BSP\InvoiceBundle\Model;
 
-use BSP\InvoiceBundle\Model\BillableInterface;
-
 interface InvoiceInterface
 {
-	const INVOICE_STATUS_DRAFT = 1;
-	const INVOICE_STATUS_SENT  = 2;
-	const INVOICE_STATUS_PAID  = 3;
-	
-	function getNumber();
-	function setNumber( $number );
-	function getStatus();
-	function setStatus( $status );
-	function incrementUpdatedAt();
-	function getCreatedAt();
-	function setCreatedAt( $createdAt );
-	function getNotes();
-	function setNotes( $notes );
-	function getDate();
-	function setDate( $date );
-	function getSentAt();
-	function setSentAt( $date );
-	function getPayedAt();
-	function setPayedAt( $date );
-	function getCurrency();
-	function setCurrency( $currency );
-	function determineTotals();
-	function getTotal();
-	function getSubTotal();
-	function getTaxTotal();
-	function setTotal( $total );
-	function setSubTotal( $subtotal );
-	function setTotalTax( $totalTax );
-	function getLines();
-	function addLine( $line );
-	function setLines( $lines );
-	function getProvider();	
-	function setProvider( $provider );
-	function getCustomer();
-	function setCustomer( $customer );
+    const INVOICE_STATUS_DRAFT = 1;
+    const INVOICE_STATUS_SENT  = 2;
+    const INVOICE_STATUS_PAID  = 3;
+
+    public function getNumber();
+    public function setNumber( $number );
+    public function getStatus();
+    public function setStatus( $status );
+    public function incrementUpdatedAt();
+    public function getCreatedAt();
+    public function setCreatedAt( $createdAt );
+    public function getNotes();
+    public function setNotes( $notes );
+    public function getDate();
+    public function setDate( $date );
+    public function getSentAt();
+    public function setSentAt( $date );
+    public function getPayedAt();
+    public function setPayedAt( $date );
+    public function getCurrency();
+    public function setCurrency( $currency );
+    public function determineTotals();
+    public function getTotal();
+    public function getSubTotal();
+    public function getTaxTotal();
+    public function setTotal( $total );
+    public function setSubTotal( $subtotal );
+    public function setTotalTax( $totalTax );
+    public function getLines();
+    public function addLine( $line );
+    public function setLines( $lines );
+    public function getProvider();
+    public function setProvider( $provider );
+    public function getCustomer();
+    public function setCustomer( $customer );
 }

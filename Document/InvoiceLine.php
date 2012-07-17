@@ -10,59 +10,59 @@ use BSP\InvoiceBundle\Model\InvoiceLine as BaseInvoiceLine;
  */
 class InvoiceLine extends BaseInvoiceLine
 {
-	/**
-	 * @MongoDB\Int
-	 */
-	protected $type;
-	
-	/**
-	 * @MongoDB\String
-	 */
-	protected $reference;
-	
-	/**
-	 * @MongoDB\String
-	 */
-	protected $description;
-	
-	/**
-	 * @MongoDB\Int
-	 */
-	protected $quantity;
-	
-	/**
-	 * @MongoDB\Float
-	 */
-	protected $amount;
-	
-	/**
-	 * @MongoDB\Float
-	 */
-	protected $tax;
-	
-	/**
-	 * @MongoDB\Float
-	 */
-	protected $totalTax;
-	
-	/**
-	 * @MongoDB\Float
-	 */
-	protected $discount;
-	
-	/**
-	 * @MongoDB\Float
-	 */
-	protected $totalDiscount;
-	
-	/**
-	 * @MongoDB\Float
-	 */
-	protected $total;
-	
-	/**
-	 * @MongoDB\Float
-	 */
-	protected $subtotal;
-	
+    /**
+     * @MongoDB\Int
+     */
+    protected $type;
+
+    /**
+     * @MongoDB\String
+     */
+    protected $reference;
+
+    /**
+     * @MongoDB\String
+     */
+    protected $description;
+
+    /**
+     * @MongoDB\Int
+     */
+    protected $quantity;
+
+    /**
+     * @MongoDB\Float
+     */
+    protected $amount;
+
+    /**
+     * @MongoDB\Float
+     */
+    protected $tax;
+
+    /**
+     * @MongoDB\Float
+     */
+    protected $totalTax;
+
+    /**
+     * @MongoDB\Float
+     */
+    protected $discount;
+
+    /**
+     * @MongoDB\Float
+     */
+    protected $totalDiscount;
+
+    /**
+     * @MongoDB\Float
+     */
+    protected $total;
+
+    /**
+     * @MongoDB\Float
+     */
+    protected $subtotal;
+
 }

@@ -19,17 +19,17 @@ class Configuration implements ConfigurationInterface
     {
         $treeBuilder = new TreeBuilder();
         $rootNode = $treeBuilder->root('bsp_invoice');
-        
+
         $rootNode
-	        ->children()
-		        ->scalarNode('db_driver')
-		        ->validate()
-			        ->ifNotInArray(array('mongodb'))
-			        ->thenInvalid('The %s driver is not supported')
-		        ->end()
-	        ->end()
+            ->children()
+                ->scalarNode('db_driver')
+                ->validate()
+                    ->ifNotInArray(array('mongodb'))
+                    ->thenInvalid('The %s driver is not supported')
+                ->end()
+            ->end()
         ->end();
-        
+
         return $treeBuilder;
     }
 }

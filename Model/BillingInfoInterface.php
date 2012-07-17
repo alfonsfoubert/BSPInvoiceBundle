@@ -4,9 +4,9 @@ namespace BSP\InvoiceBundle\Model;
 
 interface BillingInfoInterface
 {
-	function getName();
-	function getLines();
-	function setName( $name );
-	function setLines( $lines );
-	function addLine( $key, $value );
+    public function getName();
+    public function getLines();
+    public function setName( $name );
+    public function setLines( $lines );
+    public function addLine( $key, $value );
 }

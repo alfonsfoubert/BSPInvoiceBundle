@@ -1,4 +1,4 @@
-parameters:    
+parameters:
     # Invoice Manipulator
     bsp_invoice.manipulator.class: BSP\InvoiceBundle\Util\InvoiceManipulator
 
