@@ -44,6 +44,16 @@ class InvoiceManipulator
         return $invoice;
     }
 
+    public function sendInvoice( $invoice, $date = null )
+    {
+        $invoice = $this->_getInvoice($invoice);
+        $date = ( $date == null)? new \DateTime() : $date;
+        $invoice->setDate( $date );
+        $this->invoiceManager->updateInvoice( $invoice );
+        
+        return $invoice;
+    }
+    
     protected function _getInvoice( $invoice )
     {
         if ( is_string($invoice) ) {

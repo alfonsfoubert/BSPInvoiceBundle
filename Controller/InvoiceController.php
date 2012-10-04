@@ -16,7 +16,7 @@ class InvoiceController extends Controller
         }
 
         $html = $this->renderView( 'BSPInvoiceBundle:Invoice:invoice.html.twig',
-                            array( 'invoice' => $invoice) );
+                            array( 'invoice' => $invoice ) );
 
         return new Response(
             $this->get('knp_snappy.pdf')->getOutputFromHtml($html),
@@ -35,6 +35,6 @@ class InvoiceController extends Controller
             throw $this->createNotFoundException( 'Invoice ' . $id . ' not found' );
         }
 
-        return $this->render( 'BSPInvoiceBundle:Invoice:invoice.html.twig', array('invoice' => $invoice) );
+        return $this->render( 'BSPInvoiceBundle:Invoice:invoice.html.twig', array('invoice' => $invoice, 'pdflink' => true) );
     }
 }

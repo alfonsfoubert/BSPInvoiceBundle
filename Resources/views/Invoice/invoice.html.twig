@@ -52,6 +52,10 @@
 <span>Total taxes: {{ invoice.taxTotal }}</span>
 <span>Total: {{ invoice.currency }} {{ invoice.total }}</span>
 
+{% if pdflink is defined %}
+    <a href="{{ path('BSPInvoiceBundle_pdf', { 'id' : invoice.id } ) }}">PDF</a>
+{% endif %}
+
 </body>
 
 </html>
