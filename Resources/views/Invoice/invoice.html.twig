@@ -53,7 +53,7 @@
 <span>Total: {{ invoice.currency }} {{ invoice.total }}</span>
 
 {% if pdflink is defined %}
-    <a href="{{ path('BSPInvoiceBundle_pdf', { 'id' : invoice.id } ) }}">PDF</a>
+    <a href="{{ path('bsp_invoice_pdf', { 'id' : invoice.id } ) }}">PDF</a>
 {% endif %}
 
 </body>

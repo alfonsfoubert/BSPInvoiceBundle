@@ -1,7 +1,7 @@
-BSPInvoiceBundle_invoice:
+bsp_invoice_invoice:
     pattern:  /invoice/{id}
     defaults: { _controller: BSPInvoiceBundle:Invoice:view }
 
-BSPInvoiceBundle_pdf:
+bsp_invoice_pdf:
     pattern:  /invoice/pdf/{id}
     defaults: { _controller: BSPInvoiceBundle:Invoice:getPDF }
