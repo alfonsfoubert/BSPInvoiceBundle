@@ -1,0 +1,39 @@
+{
+    "name": "d3r3ck/bsp-invoice-bundle",
+    "type": "symfony-bundle",
+    "description": "Invoice system for Symfony2",
+    "keywords": ["invoice", "symfony2", "bundle", "bsp"],
+    "homepage": "https://github.com/D3r3ck/BSPInvoiceBundle",
+    "license": "MIT",
+
+    "authors": [
+        {
+            "name": "Alfons Foubert",
+            "homepage": "http://alfonsfoubert.com",
+            "email" : "afons.foubert@gmail.com"
+        }
+    ],
+
+    "require": {
+        "php":                      ">=5.3.3",
+        "symfony/framework-bundle": "~2.0"
+    },
+
+    "suggest": {
+        "knplabs/knp-snappy-bundle": "Needed if you want to print in PDF format"
+    },
+
+    "autoload": {
+        "psr-0": {
+            "BSP\\InvoiceBundle": ""
+        }
+    },
+
+    "target-dir": "BSP/InvoiceBundle",
+    
+    "extra": {
+        "branch-alias": {
+            "dev-master": "1.0.x-dev"
+        }
+    }
+}
